@@ -11,4 +11,6 @@
 |
 */
 
-Route::resource('/', 'HomeController');
+Route::get('/', 'IndexController@index');
+Route::resource('lorem-ipsum', 'LoremIpsumController');
+Route::resource('fake-user', 'FakeUserController');

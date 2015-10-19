@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Project3\Http\Requests;
 use Project3\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class FakeUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //Return project home page
-        return view('home');
+        //Return fake user generator home page
+        return view('fakeuser');
     }
 
     /**
