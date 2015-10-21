@@ -7,10 +7,10 @@
       <!-- Navbar Section -->
       @include('layouts.partials._navbar')
       <!-- Page Header -->
-      @yield('header')
+      @include('layouts.partials._header')
       <!-- Page Content -->
       <div id="main-container">
-        @yield('content')
+        @include('layouts.partials._content')
       </div>
     </div>
     <!-- Footer Section -->

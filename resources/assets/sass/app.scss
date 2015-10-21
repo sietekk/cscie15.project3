@@ -21,15 +21,24 @@
   overflow-y: visible;
 }
 
-.img-responsive {
+.btn-width {
+  width: 100%;
+}
+
+.btn-block-container {
+  max-width: 300px;
   margin: auto;
 }
 
-.pw-presentation {
-  text-align: center;
-  overflow-wrap: break-word;
+.panel-heading-container {
+  display: inline-block;
+  width: 100%;
 }
 
-.btn-width {
-  width: 100%;
+.panel-title-text {
+  float: left;
+}
+
+.panel-title-return {
+  float: right;
 }
