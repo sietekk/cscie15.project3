@@ -5,6 +5,7 @@ namespace Project3\Http\Controllers;
 use Illuminate\Http\Request;
 use Project3\Http\Requests;
 use Project3\Http\Controllers\Controller;
+use Badcow\LoremIpsum\Generator;
 
 class LoremIpsumController extends Controller
 {
@@ -20,16 +21,6 @@ class LoremIpsumController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -37,51 +28,36 @@ class LoremIpsumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate form
+        $this->validate($request, [
+            'text_type' => 'required|in:words,sentences,paragraphs',
+            'text_quantity' => 'required|integer|between:1,100',
+        ]);
+
+        // Assign variables
+        $text_type = $request->input('text_type');
+        $text_quantity = $request->input('text_quantity');
+
+        // Generate Lorem Ipsum Data
+        $generator = new Generator();
+        if ($text_type == 'words') {
+            $text_data = $generator->getWords($text_quantity);
+        } elseif ($text_type == 'sentences') {
+            $text_data = $generator->getSentences($text_quantity);
+        } elseif ($text_type == 'paragraphs') {
+            $text_data = $generator->getParagraphs($text_quantity);
+        } else {
+            // If both frontend and backend validation fail...
+            return view('error');
+        }
+
+        // Push data to view and return view
+        //echo implode('<p>', $text_data;
+        return view('results', [
+            'payload' => $text_data,
+            'source' => 'lorem-ipsum',
+            'title' => 'Lorem Ipsum Generator'
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

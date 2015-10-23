@@ -1,4 +1,4 @@
-<!-- Header Section -->
+<!-- Head Section -->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
     @yield('title','Project 3')
   </title>
   <!-- Bootstrap 3.3.5 -->
-  <link rel="stylesheet" href="{{ elixir("css/bundle.css") }}">
+  <link rel="stylesheet" href="{{ elixir('css/bundle.css') }}">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>

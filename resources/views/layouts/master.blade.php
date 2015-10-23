@@ -10,10 +10,10 @@
       @include('layouts.partials._header')
       <!-- Page Content -->
       <div id="main-container">
-        @include('layouts.partials._content')
+        @yield('main-content')
       </div>
     </div>
-    <!-- Footer Section -->
-    @include('layouts.partials._footer')
   </body>
+  <!-- Footer Section -->
+  @include('layouts.partials._footer')
 </html>

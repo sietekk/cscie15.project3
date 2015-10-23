@@ -1,10 +1,10 @@
-@extends('layouts.master');
+@extends('layouts.content')
 
-@section('heading')
+@section('panel-heading')
 <h4 class="panel-title">About This Tool</h4>
 @stop
 
-@section('content')
+@section('panel-content')
 <p>
   The Developer's Best Friend is a software development tool to generate two types of demo data.
   First, Lorem Ipsum random text may be generated according to the number of words, sentences, or

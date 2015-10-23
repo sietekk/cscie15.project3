@@ -1,6 +1,6 @@
-@extends('layouts.master');
+@extends('layouts.content')
 
-@section('heading')
+@section('panel-heading')
 <span class="panel-heading-container">
   <h4 class="panel-title panel-title-text">Fake User Generator</h4>
   <a role="button" class="btn btn-info btn-xs panel-title-return" href="{{ url('/') }}">
@@ -10,7 +10,7 @@
 </span>
 @stop
  
-@section('content')
+@section('panel-content')
 <div class="container">
   <form id="fake-user-generator-form" class="form-horizontal" action="{{ url('fake-user') }}" method="POST" autocomplete="off">
     <input type='hidden' name='_token' value='{{ csrf_token() }}'>
