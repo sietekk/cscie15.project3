@@ -41,7 +41,7 @@ class LoremIpsumController extends Controller
         // Generate Lorem Ipsum Data
         $generator = new Generator();
         if ($text_type == 'words') {
-            $text_data = $generator->getWords($text_quantity);
+            $text_data = $generator->getRandomWords($text_quantity);
         } elseif ($text_type == 'sentences') {
             $text_data = $generator->getSentences($text_quantity);
         } elseif ($text_type == 'paragraphs') {
