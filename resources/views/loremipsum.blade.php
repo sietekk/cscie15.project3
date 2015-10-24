@@ -40,7 +40,7 @@
         @if($errors->get('text_type'))
           @foreach($errors->get('text_type') as $error_text_type_message)
             <div class="alert alert-danger alert-block" role="alert">
-              {{ $error_text_type_message }}
+              {{{ $error_text_type_message }}}
             </div>
           @endforeach
         @endif
@@ -53,7 +53,7 @@
         @if($errors->get('text_quantity'))
           @foreach($errors->get('text_quantity') as $error_text_qty_message)
             <div class="alert alert-danger alert-block">
-              {{ $error_text_qty_message }}
+              {{{ $error_text_qty_message }}}
             </div>
           @endforeach
         @endif

@@ -48,7 +48,7 @@ class LoremIpsumController extends Controller
             $text_data = $generator->getParagraphs($text_quantity);
         } else {
             // If both frontend and backend validation fail...
-            return view('error');
+            return view('errors.error');
         }
 
         // Push data to view and return view
@@ -59,5 +59,4 @@ class LoremIpsumController extends Controller
             'title' => 'Lorem Ipsum Generator'
         ]);
     }
-
 }

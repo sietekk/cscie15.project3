@@ -2,7 +2,9 @@
 
 @section('panel-heading')
 <span class="panel-heading-container">
-  <h4 class="panel-title panel-title-text">Fake User Generator</h4>
+  <h4 class="panel-title panel-title-text">
+    <a href="{{ url('/') }}">Home</a> / Fake User Generator
+  </h4>
   <a role="button" class="btn btn-info btn-xs panel-title-return" href="{{ url('/') }}">
     <span class="glyphicon glyphicon-arrow-left"></span>
     Return
@@ -11,6 +13,7 @@
 @stop
  
 @section('panel-content')
+<?php echo implode(' ',$errors->get('form_array.0')); ?>
 <div class="container">
   <form id="fake-user-generator-form" class="form-horizontal" action="{{ url('fake-user') }}" method="POST" autocomplete="off">
     <input type='hidden' name='_token' value='{{ csrf_token() }}'>
@@ -19,9 +22,16 @@
       <div class="col-md-6">
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="name" id="name">
+            <input type="checkbox" name="form_array[]" id="name" value="name" checked>
           </label>
         </div>
+        @if($errors->get('name'))
+          @foreach($errors->get('name') as $error_text_type_message)
+            <div class="alert alert-danger alert-block" role="alert">
+              {{{ $error_text_type_message }}}
+            </div>
+          @endforeach
+        @endif
       </div>
     </div>
     <div class="form-group">
@@ -29,9 +39,16 @@
       <div class="col-md-6">
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="address" id="address">
+            <input type="checkbox" name="form_array[]" id="address" value="address">
           </label>
         </div>
+        @if($errors->get('address'))
+          @foreach($errors->get('address') as $error_text_type_message)
+            <div class="alert alert-danger alert-block" role="alert">
+              {{{ $error_text_type_message }}}
+            </div>
+          @endforeach
+        @endif
       </div>
     </div>
     <div class="form-group">
@@ -39,9 +56,16 @@
       <div class="col-md-6">
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="phone" id="phone">
+            <input type="checkbox" name="form_array[]" id="phone" value="phone">
           </label>
         </div>
+        @if($errors->get('phone'))
+          @foreach($errors->get('phone') as $error_text_type_message)
+            <div class="alert alert-danger alert-block" role="alert">
+              {{{ $error_text_type_message }}}
+            </div>
+          @endforeach
+        @endif
       </div>
     </div>
     <div class="form-group">
@@ -49,15 +73,29 @@
       <div class="col-md-6">
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="birthdate" id="birthdate">
+            <input type="checkbox" name="form_array[]" id="birthdate" value="birthdate">
           </label>
         </div>
+        @if($errors->get('birthdate'))
+          @foreach($errors->get('birthdate') as $error_text_type_message)
+            <div class="alert alert-danger alert-block" role="alert">
+              {{{ $error_text_type_message }}}
+            </div>
+          @endforeach
+        @endif
       </div>
     </div>
     <div class="form-group">
       <label for="user-quantity" class="col-md-6 control-label">Number of Users</label>
       <div class="col-md-6">
         <input type="number" min="1" max="100" class="form-control" name="user_quantity" id="user-quantity" placeholder="1-100" required>
+        @if($errors->get('text_quantity'))
+          @foreach($errors->get('text_quantity') as $error_text_qty_message)
+            <div class="alert alert-danger alert-block">
+              {{ $error_text_qty_message }}
+            </div>
+          @endforeach
+        @endif
       </div>
     </div>
     <div class="form-group">

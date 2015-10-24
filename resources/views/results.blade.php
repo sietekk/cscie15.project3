@@ -18,6 +18,6 @@
             <p>{{ $paragraph }}</p>
         @endforeach
     @else
-        Something went horribly wrong.
+        @include('errors.error')
     @endif
 @stop
