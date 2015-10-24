@@ -13,27 +13,12 @@
 @stop
  
 @section('panel-content')
-<?php echo implode(' ',$errors->get('form_array.0')); ?>
+<p>
+  You may choose additional parameters to generate along with a name for each user:
+</p>
 <div class="container">
   <form id="fake-user-generator-form" class="form-horizontal" action="{{ url('fake-user') }}" method="POST" autocomplete="off">
     <input type='hidden' name='_token' value='{{ csrf_token() }}'>
-    <div class="form-group">
-      <label for="name" class="col-md-6 control-label">Name</label>
-      <div class="col-md-6">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="form_array[]" id="name" value="name" checked>
-          </label>
-        </div>
-        @if($errors->get('name'))
-          @foreach($errors->get('name') as $error_text_type_message)
-            <div class="alert alert-danger alert-block" role="alert">
-              {{{ $error_text_type_message }}}
-            </div>
-          @endforeach
-        @endif
-      </div>
-    </div>
     <div class="form-group">
       <label for="address" class="col-md-6 control-label">Address</label>
       <div class="col-md-6">
@@ -86,7 +71,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="user-quantity" class="col-md-6 control-label">Number of Users</label>
+      <label for="user-quantity" class="col-md-6 control-label">Quantity of Users</label>
       <div class="col-md-6">
         <input type="number" min="1" max="100" class="form-control" name="user_quantity" id="user-quantity" placeholder="1-100" required>
         @if($errors->get('text_quantity'))

@@ -13,6 +13,9 @@
 @stop
 
 @section('panel-content')
+<p>
+  Please choose the type and quantity of text to generate:
+</p>
 <div class="container">
   <form id="lorem-ipsum-generator-form" class="form-horizontal" action="{{ url('lorem-ipsum') }}" method="POST" autocomplete="off">
     <input type='hidden' name='_token' value='{{ csrf_token() }}'>
@@ -47,7 +50,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="text-quantity" class="col-md-6 control-label">Number of Words</label>
+      <label for="text-quantity" class="col-md-6 control-label">Quantity of Text Type</label>
       <div class="col-md-6">
         <input type="number" min="1" max="100" class="form-control" name="text_quantity" id="text-quantity" placeholder="1-100" required>
         @if($errors->get('text_quantity'))
