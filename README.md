@@ -1,4 +1,4 @@
-# CSCI E-15 Project 3 Placeholder
+# CSCI E-15 Project 3
 # Developer's Best Friend
 
 ## Live URL
