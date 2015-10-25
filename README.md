@@ -14,8 +14,10 @@ Validation is performed using Bootstrap form validation in the frontend and Lara
 #### Task Runner
 ##### Development
 This application uses NPM, Gulp, and Laravel's Elixir for the task runner workflow:
+
 1. Run `npm install` to install necessary dependencies to the `node_modules` directory.
 2. Run `gulp` to compile, bundle, and version all Sass/CSS and JavaScript into the `build/` directory.
+
 ##### Production
 1. Run `npm install` to install necessary dependencies to the `node_modules` directory.
 2. Run `gulp --production` to not only bundle and version all Sass/CSS and JavaScript, but also remove intermediary bundles and directories.**
